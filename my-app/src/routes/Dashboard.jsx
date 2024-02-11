@@ -1,9 +1,7 @@
-import { useNavigate } from 'react-router'
-
-const Home = () => {
+const Dashboard = () => {
   return(
     <h2>dash</h2>
   )
 };
 
-export default Home;
+export default Dashboard;
