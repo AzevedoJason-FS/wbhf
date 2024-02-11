@@ -4,4 +4,58 @@ body{
     font-family: 'Karla', sans-serif;
     padding: 0;
     margin: 0;
+    background-color: #EEEEEE;
+    color: #303030;
+}
+
+.container{
+    max-width: 1400px;
+    margin: auto;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.header_1{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.header_1 p {
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+nav{
+    background-color: #0083BF;
+    display: flex;
+    flex-direction: row;
+    margin-top: 4px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+}
+
+.nav-link-container{
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.nav-link{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 2rem auto;
 }
