@@ -29,6 +29,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.get('/api/posts', postCtrl.getPosts)
+app.get('/api/article/:slug', postCtrl.getSinglePost)
 app.get('/api/users', userCtrl.getUsers)
 app.post('/api/login', userCtrl.login)
 app.post('/api/signup', userCtrl.signup)

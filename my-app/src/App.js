@@ -59,7 +59,7 @@ const App = () => {
           }
         />
         <Route
-          path="/article/:post"
+          path="/article/:slug"
           element={
             <Suspense
               fallback={

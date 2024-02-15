@@ -5,7 +5,7 @@ const Weather = () => {
   const [weather, setWeather] = useState({});
   const [location, setLocation] = useState({});
   const [forecast, setForecast] = useState([]);
-  const url = "http://api.weatherapi.com/v1/forecast.json?key=e5eb030fbe61458397065456241302&q=cartersville,GA&days=5&aqi=no&alerts=no";
+  const url = "https://api.weatherapi.com/v1/forecast.json?key=e5eb030fbe61458397065456241302&q=cartersville,GA&days=5&aqi=no&alerts=no";
 
   useEffect(() => {
     axios.get(url).then((response) => {
@@ -19,7 +19,6 @@ const Weather = () => {
     <>
       {weather && location && forecast ? (
         <>
-          {console.log(forecast)}
           <div className="weather-widget" data-time={weather.is_day}>
             <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" style={{zIndex: '0', opacity: '.1', position: 'absolute', top: '0', right: '-40px', width: '-webkit-fill-available'}}/>
             <div className="section-1">

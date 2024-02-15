@@ -88,7 +88,7 @@ nav {
   font-weight: 600;
   color: #0083bf;
   letter-spacing: -0.96px;
-  margin: 1rem 0 2rem 0;
+  margin: 0 0 2rem 0;
 }
 
 article {
@@ -118,7 +118,7 @@ article img {
 }
 
 article h2 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
   letter-spacing: -0.96px;
 }
@@ -150,7 +150,7 @@ article:hover {
   flex-direction: column;
   padding: 20px;
   position: relative;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .weather-widget .section-1,
@@ -185,7 +185,7 @@ article:hover {
 }
 
 .programming-widget {
-  background-color: #e4e4e4;
+  background-color: white;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -218,4 +218,52 @@ article:hover {
 .programming-event{
     margin-left: 1rem;
     padding-right: 4px;
+}
+
+.news-article{
+  background-color: #ffffff;
+  padding: 40px 20px;
+  white-space: pre-line;
+  font-size: 18px;
+  line-height: 1.54;
+}
+
+.news-article img{
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.social-share-container{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.social-share-btn{
+width: 32px;
+aspect-ratio: 1;
+}
+
+.news-block-widget{
+  display: flex;
+  flex-direction: column;
+}
+
+.article-widget{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+  transition: all 0.2s linear;
+}
+
+.article-widget img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.article-widget .article-body h2{
+  font-size: 18px;
 }
