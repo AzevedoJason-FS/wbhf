@@ -1,0 +1,48 @@
+import { React, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+// import { useNavigate } from 'react-router'
+import axios from "axios";
+import { config } from "../constants";
+
+const News = () => {
+  const [posts, setPosts] = useState();
+  const url = config.url.API_URL_POSTS;
+
+  useEffect(() => {
+    axios.get(url).then((response) => {
+      setPosts(response.data);
+    });
+  }, [url]);
+
+  return (
+    <div className="news-block">
+      <h2 className="title">Latest Local News</h2>
+      {posts && posts.length > 0 ? (
+<>
+          {posts &&
+            posts.map((post) => {
+              return (
+                <Link to={`/article/${post.slug}`} className="article-link">
+                <article>
+                
+                  <img src={post.img} alt="tennis" />
+                  <div className="article-body">
+                  <p className="location-box">{post.location}</p>
+                  <h2>{post.title}</h2>
+                  <p>{post.body}</p>
+                  <p>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
+                  </div>
+                  
+                </article>
+                </Link>
+              );
+            })}
+      </>
+      ) : (
+        <p>nothing</p>
+      )}
+    </div>
+  );
+};
+
+export default News;

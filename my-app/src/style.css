@@ -1,61 +1,221 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap");
 
-body{
-    font-family: 'Karla', sans-serif;
-    padding: 0;
-    margin: 0;
-    background-color: #EEEEEE;
-    color: #303030;
+body {
+  font-family: "Karla", sans-serif;
+  padding: 0;
+  margin: 0;
+  background-color: #eeeeee;
+  color: #303030;
 }
 
-.container{
-    max-width: 1400px;
-    margin: auto;
+.container {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
 }
 
-header{
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
+header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
 }
 
-.header_1{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
+.header_1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 
 .header_1 p {
-    text-transform: uppercase;
-    font-size: 16px;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
-nav{
-    background-color: #0083BF;
+nav {
+  background-color: #0083bf;
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.nav-link-container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  max-width: 1400px;
+  margin: 2rem auto;
+  gap: 30px;
+}
+
+.sponsor-block {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+}
+
+.sponsor-block img {
+  width: 100%;
+}
+
+.right-column {
+  width: 32%;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.96px;
+  margin: 0 0 1rem 0;
+}
+
+.sub-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0083bf;
+  letter-spacing: -0.96px;
+  margin: 1rem 0 2rem 0;
+}
+
+article {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  transition: all 0.2s linear;
+}
+
+.article-body {
+  flex: 1;
+  min-width: 0; /* or some value */
+}
+
+.article-body p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+article img {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+
+article h2 {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -0.96px;
+}
+
+article .location-box {
+  background-color: #0083bf;
+  padding: 4px 10px;
+  width: fit-content;
+  margin-top: 0;
+  color: white;
+}
+
+article .date {
+  color: #303030;
+}
+
+.article-link {
+  text-decoration: none;
+  color: #303030;
+}
+
+article:hover {
+  background-color: #0083bf4c;
+  cursor: pointer;
+}
+
+.weather-widget {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+}
+
+.weather-widget .section-1,
+.section-2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.section-2 {
+  margin-top: 1rem;
+  justify-content: flex-start;
+  gap: 30px;
+}
+
+[data-time="0"] {
+  background: linear-gradient(#0a142c, #070910);
+  color: white;
+}
+
+[data-time="1"] {
+  background: linear-gradient(#1f8bba, #6eb8dc);
+  color: white;
+}
+
+.forecast-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.programming-widget {
+  background-color: #e4e4e4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.programming-box{
+    width: 100%;
+    background-color: white;
+    border: 1px solid #C9CACC;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
-    margin-top: 4px;
+}
+
+.programming-date{
+    min-width: 96px;
+    padding: 4px;
+    background-color: #F0F3F3;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 0px 10px;
 }
 
-.nav-link-container{
-    display: flex;
-    flex-direction: row;
-    gap: 32px;
+.programming-date p{
+    font-size: 14px;
+    text-align: center;
 }
 
-.nav-link{
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-}
-
-.main{
-    display: flex;
-    flex-direction: column;
-    max-width: 1400px;
-    margin: 2rem auto;
+.programming-event{
+    margin-left: 1rem;
+    padding-right: 4px;
 }

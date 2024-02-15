@@ -4,6 +4,7 @@ import ErrorPage from "./error-page";
 
 const HomePage = lazy(() => import("./routes/Home.jsx"));
 const LoginPage = lazy(() => import("./routes/Login.jsx"));
+const ArticlePage = lazy(() => import("./routes/Article.jsx"));
 const DashboardPage = lazy(() => import("./routes/Dashboard.jsx"));
 
 const App = () => {
@@ -57,8 +58,8 @@ const App = () => {
             </Suspense>
           }
         />
-        {/* <Route
-          path="/events"
+        <Route
+          path="/article/:post"
           element={
             <Suspense
               fallback={
@@ -68,10 +69,11 @@ const App = () => {
                   </div>
                 </div>
               }>
-              <EventsPage />
+              <ArticlePage />
             </Suspense>
           }
         />
+        {/* 
         <Route
           path="/exhibits/:exhibitSlug"
           element={

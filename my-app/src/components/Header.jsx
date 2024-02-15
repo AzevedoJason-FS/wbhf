@@ -13,7 +13,7 @@ const Header = () => {
         <p style={{ width: "303px", textAlign: "start" }}>EST 1946</p>
         <p style={{ width: "360px", textAlign: "center" }}>BARTOW, GA</p>
         <p style={{ width: "267px", textAlign: "end" }}>
-          {new Date(date).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}
+          {new Date(date).toLocaleDateString("en-us", { weekday: 'long', day: "numeric", month: "long", year: "numeric" })}
         </p>
       </div>
       <nav>
