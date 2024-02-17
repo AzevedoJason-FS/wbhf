@@ -7,6 +7,7 @@ const postCtrl = require ('./controllers/posts')
 const userCtrl = require ('./controllers/users');
 const cookieParser = require('cookie-parser');
 const { userVerification } = require('./middleware/AuthMiddleware');
+const { auth } = require('./middleware/Auth');
 
 // Connect to MongoDB
 const connectMongo = async () => {
@@ -33,7 +34,7 @@ app.get('/api/article/:slug', postCtrl.getSinglePost)
 app.get('/api/users', userCtrl.getUsers)
 app.post('/api/login', userCtrl.login)
 app.post('/api/signup', userCtrl.signup)
-app.post('/api/new-article', userVerification)
+app.post('/api/new-article', auth, postCtrl.createPost)
 app.post('/api', userVerification)
 // app.get('/api/leaderboard', leaderboardCtrl.getLeaderboard)
 // app.post('/api/add-items', itemCtrl.addItems)

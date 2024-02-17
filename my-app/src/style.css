@@ -51,7 +51,7 @@ nav {
 .nav-link {
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .main {
@@ -266,4 +266,35 @@ aspect-ratio: 1;
 
 .article-widget .article-body h2{
   font-size: 18px;
+}
+
+.dashboard-links{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dashboard-link{
+  color: #303030;
+  text-decoration: none;
+  font-weight: 500;
+  border: 1px solid #C9CACC;
+  font-size: 20px;
+  padding: 20px;
+  gap: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content: center;
+  transition: all 0.2s linear;
+}
+
+.dashboard-link:hover{
+  background-color: #0083bf2a;
+}
+
+.dashboard-icon{
+  width: 64px;
+  aspect-ratio: 1;
 }

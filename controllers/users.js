@@ -57,11 +57,11 @@ const login = async (req, res) => {
 
         //check email
         const user = await Users.findOne({name})
-        if(!user) return res.status(400).json({message: 'This user is not registered'})
+        if(!user) return res.status(400).json('This user is not registered')
 
         //check password
         const isMatch = await bcrypt.compare(password, user.password)
-        if(!isMatch) return res.status(400).json({message: 'This password is incorrect'})
+        if(!isMatch) return res.status(400).json('This password is incorrect')
 
         // Creating refresh token not that expiry of refresh 
         const token = createSecretToken(user._id)
@@ -73,7 +73,7 @@ const login = async (req, res) => {
         })
 
         //signin success
-        res.status(201).json({message: 'User logged in successfully'})
+        res.status(201).json(true)
         
     }catch(err){
         res.status(500).json({message: err.message })

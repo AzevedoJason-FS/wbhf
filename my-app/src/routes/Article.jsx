@@ -2,8 +2,8 @@ import React from "react";
 import { config } from "../constants";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Weather from "../components/Weather";
-import Programming from "../components/Programming";
 import Header from "../components/Header";
 import SocialShare from "../components/SocialShare";
 import NewsWidget from "../components/NewsWidget";
@@ -36,6 +36,7 @@ const Article = () => {
               <img src="/global-images/banner.jpeg" alt="bank" />
             </div>
             <div className="news-article">
+            <Link to={`/`} style={{color: '#0083bf', marginBottom: '10px'}}>Return Home</Link>
               <h2 className="title" style={{ marginBottom: "2rem" }}>
                 {article.title}
               </h2>

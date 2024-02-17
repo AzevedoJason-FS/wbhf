@@ -19,7 +19,7 @@ const NewsWidget = () => {
       {posts && posts.length > 0 ? (
 <>
           {posts &&
-            posts.map((post) => {
+            posts.slice(0, 6).map((post) => {
               return (
                 <Link to={`/article/${post.slug}`} className="article-link">
                 <article className="article-widget">

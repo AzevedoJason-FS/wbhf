@@ -18,15 +18,6 @@ const Login = () => {
     });
   };
 
-  const handleError = (err) =>
-    toast.error(err, {
-      position: "bottom-left",
-    });
-  const handleSuccess = (msg) =>
-    toast.success(msg, {
-      position: "bottom-left",
-    });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -36,19 +27,12 @@ const Login = () => {
           ...inputValue,
         },
         { withCredentials: true }
-      );
-      console.log(data);
-      const { success, message } = data;
-      if (success) {
-        handleSuccess(message);
-        setTimeout(() => {
-          navigate("/");
-        }, 1000);
-      } else {
-        handleError(message);
-      }
-    } catch (error) {
-      console.log(error);
+      ).then((res) => {
+        if(res.data === true) navigate('/dashboard')
+
+      })
+    } catch (err) {
+      console.log('error');
     }
     setInputValue({
       ...inputValue,
@@ -63,11 +47,11 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name</label>
-          <input type="name" name="name" value={name} placeholder="Enter your name" onChange={handleOnChange} />
+          <input type="name" name="name" value={name} placeholder="Enter your name" onChange={handleOnChange} required/>
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" value={password} placeholder="Enter your password" onChange={handleOnChange} />
+          <input type="password" name="password" value={password} placeholder="Enter your password" onChange={handleOnChange} required/>
         </div>
         <button type="submit">Submit</button>
       </form>

@@ -7,7 +7,6 @@ const Programming = () => {
   return (
     <div className="programming-widget">
       <p className="sub-title">{new Date(date).toLocaleDateString("en-us", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
-
       {currentDay === 1 || 2 || 4 ? (
         <>
           <div className="programming-box">
