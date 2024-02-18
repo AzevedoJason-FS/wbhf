@@ -4,11 +4,6 @@ import News from "../components/News";
 import Weather from "../components/Weather";
 import Programming from "../components/Programming";
 
-// const _ = require("lodash");
-
-// // const myString = "Moto killed after Hitting bUS WAS FLEEING LAW ";
-// // const slug = _.kebabCase(myString);
-
 const Home = () => {
   return (
     <>
