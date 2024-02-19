@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
@@ -8,18 +8,18 @@ import { ToastContainer, toast } from "react-toastify";
 const _ = require("lodash");
 
 const DashboardCreate = () => {
+  const cloudinaryRef = useRef();
+  const widgetRef = useRef();
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
   const [inputValue, setInputValue] = useState({
     location: "",
     title: "",
     body: "",
-    slug: "",
-    img: ""
   });
-  const [file, setFile] = useState();
-  const { location, title, body, img } = inputValue;
+  const { location, title, body } = inputValue;
   const slug = _.kebabCase(title);
+  const [img, setImg] = useState();
 
   useEffect(() => {
     const verifyCookie = async () => {
@@ -31,22 +31,40 @@ const DashboardCreate = () => {
       return !status ? (removeCookie("token"), navigate("/login")) : <></>;
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
 
+    cloudinaryRef.current = window.cloudinary;
+    widgetRef.current = cloudinaryRef.current.createUploadWidget(
+      {
+        cloudName: "dbqqobh8l",
+        uploadPreset: "ml_default",
+      },
+      function (error, result) {
+        if (result.event === "success") {
+          console.log(result.info.secure_url);
+          setImg(result.info.secure_url)
+        }
+      }
+    );
+  }, [cookies, navigate, removeCookie]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(
-        "/api/new-article",
-        {
-         location, title, body, slug, img
-        },
-        { withCredentials: true }
-      ).then((res) => {
-        console.log(res)
-
-      })
+      await axios
+        .post(
+          "/api/new-article",
+          {
+            location,
+            title,
+            body,
+            slug,
+            img,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => {
+          console.log(res);
+        });
     } catch (err) {
       console.log(err);
     }
@@ -56,7 +74,7 @@ const DashboardCreate = () => {
       title: "",
       body: "",
       slug: "",
-      img: ""
+      img: "",
     });
   };
 
@@ -68,39 +86,50 @@ const DashboardCreate = () => {
     });
   };
 
-
-  function handleChangeFile(e) {
-      console.log(e.target.files);
-      setFile(URL.createObjectURL(e.target.files[0]));
-  }
-
   return (
     <div className="container">
       <Header />
       <div className="form-container">
-      <h2 className="title">Create Article</h2>
-      <form onSubmit={handleSubmit}>
-      <div className="input-box">
-          <label htmlFor="name" className="label-title">Location</label>
-          <input type="location" name="location" value={location} placeholder="location where article takes place" onChange={handleOnChange} required/>
-        </div>
-        <div className="input-box" >
-          <label htmlFor="title" className="label-title">Title</label>
-          <input type="title" name="title" value={title} placeholder="article title" onChange={handleOnChange} required/>
-        </div>
+        <h2 className="title">Create Article</h2>
         <div className="input-box">
-          <label htmlFor="body" className="label-title">Body</label>
-          <textarea type="body" name="body" value={body} placeholder="article body" onChange={handleOnChange} required rows="8"/>
-        </div>
-        <div className="input-box">
-        <label htmlFor="img" className="label-title">Image</label>
-          <input type="file" onChange={handleChangeFile} />
-          <img src={file} />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      <ToastContainer />
-    </div>
+            <label htmlFor="img" className="label-title">
+              Image
+            </label>
+            <button onClick={() => widgetRef.current.open()} className="img-upload-btn">{img ? "Change Article Image" : "Upload Article Image"}</button>
+          </div>
+          <div className="input-box">
+          {img ? <img src={img} style={{width: '200px'}}/> : <></>}
+          </div>
+        <form onSubmit={handleSubmit}>
+          <div className="input-box">
+            <label htmlFor="name" className="label-title">
+              Location
+            </label>
+            <input
+              type="location"
+              name="location"
+              value={location}
+              placeholder="location where article takes place"
+              onChange={handleOnChange}
+              required
+            />
+          </div>
+          <div className="input-box">
+            <label htmlFor="title" className="label-title">
+              Title
+            </label>
+            <input type="title" name="title" value={title} placeholder="article title" onChange={handleOnChange} required />
+          </div>
+          <div className="input-box">
+            <label htmlFor="body" className="label-title">
+              Body
+            </label>
+            <textarea type="body" name="body" value={body} placeholder="article body" onChange={handleOnChange} required rows="8" />
+          </div>
+          <button type="submit">Create Article</button>
+        </form>
+        <ToastContainer />
+      </div>
     </div>
   );
 };

@@ -18,7 +18,6 @@ const Article = () => {
     axios
       .get(baseURL)
       .then((res) => {
-        console.log(res.data[0]);
         setArticle(res.data[0]);
       })
       .catch((err) => {

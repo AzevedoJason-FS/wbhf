@@ -22,9 +22,8 @@ const News = () => {
           {posts &&
             posts.map((post) => {
               return (
-                <Link to={`/article/${post.slug}`} className="article-link">
+                <Link to={`/article/${post.slug}`} className="article-link" key={post.slug}>
                 <article>
-                
                   <img src={post.img} alt="tennis" />
                   <div className="article-body">
                   <p className="location-box">{post.location}</p>
@@ -32,7 +31,6 @@ const News = () => {
                   <p>{post.body}</p>
                   <p>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
                   </div>
-                  
                 </article>
                 </Link>
               );
