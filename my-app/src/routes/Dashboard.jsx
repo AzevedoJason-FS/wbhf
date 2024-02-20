@@ -40,7 +40,7 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="right-column">
-            <button onClick={Logout}>LOGOUT</button>
+            <button onClick={Logout} style={{padding: '20px 40px', width: '100%'}}>LOGOUT</button>
           </div>
         </div>
       </div>

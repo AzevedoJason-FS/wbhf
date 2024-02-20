@@ -17,14 +17,14 @@ const Header = () => {
         </p>
       </div>
       <nav>
-        <p style={{color: 'white'}}>(770) 386-1450</p>
+        <p style={{color: 'white', fontSize: '18px'}}>(770) 386-1450</p>
         <div className="nav-link-container">
         <Link to={`/`} className="nav-link">News</Link>
         <Link to={`/`} className="nav-link">Station</Link>
         <Link to={`/`} className="nav-link">Programming</Link>
         <Link to={`/`} className="nav-link">Contact</Link>
         </div>
-        <p style={{color: 'white'}}>Listen Live</p>
+        <p style={{color: 'white', fontSize: '18px'}}>Listen Live</p>
       </nav>
     </header>
   );

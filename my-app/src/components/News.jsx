@@ -24,7 +24,7 @@ const News = () => {
               return (
                 <Link to={`/article/${post.slug}`} className="article-link" key={post.slug}>
                 <article>
-                  <img src={post.img} alt="tennis" />
+                  <img src={post.img} alt="tennis" className="article-img"/>
                   <div className="article-body">
                   <p className="location-box">{post.location}</p>
                   <h2>{post.title}</h2>

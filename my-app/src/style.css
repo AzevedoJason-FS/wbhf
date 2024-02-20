@@ -124,7 +124,7 @@ article {
   text-overflow: ellipsis;
 }
 
-article img {
+article .article-img {
   width: 360px;
   height: 200px;
   object-fit: cover;
@@ -320,7 +320,7 @@ article:hover {
   align-items: flex-start;
   margin-top: 3rem;
   padding: 10px;
-
+  margin-bottom: 6rem;
 }
 
 .input-box{
@@ -372,4 +372,20 @@ input::placeholder{
   font-weight: 700;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+button{
+  background: none;
+	color: inherit;
+	border: none;
+  border: 1px solid #c9cacc;
+	padding: 0 40px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  transition: all 0.2s linear;
+}
+
+button:hover{
+  background-color: white;
 }
