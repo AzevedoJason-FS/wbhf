@@ -63,8 +63,11 @@ const DashboardCreate = () => {
           { withCredentials: true }
         )
         .then((res) => {
-          console.log(res);
-        });
+          if (res.status === 200) {
+              alert("Successful");
+              navigate("/dashboard");
+          } else Promise.reject();
+      })
     } catch (err) {
       console.log(err);
     }

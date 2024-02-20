@@ -6,7 +6,8 @@ const HomePage = lazy(() => import("./routes/Home.jsx"));
 const LoginPage = lazy(() => import("./routes/Login.jsx"));
 const ArticlePage = lazy(() => import("./routes/Article.jsx"));
 const DashboardPage = lazy(() => import("./routes/Dashboard.jsx"));
-const DashboardCreate= lazy(() => import("./routes/DashboardCreate.jsx"));
+const DashboardCreate = lazy(() => import("./routes/DashboardCreate.jsx"));
+const DashboardDelete = lazy(() => import("./routes/DashboardDelete.jsx"));
 
 const App = () => {
   return (
@@ -86,6 +87,21 @@ const App = () => {
                 </div>
               }>
               <ArticlePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/dashboard/delete-article"
+          element={
+            <Suspense
+              fallback={
+                <div className="loader-container">
+                  <div className="loader-container-inner">
+                    <p>Loading</p>
+                  </div>
+                </div>
+              }>
+              <DashboardDelete />
             </Suspense>
           }
         />

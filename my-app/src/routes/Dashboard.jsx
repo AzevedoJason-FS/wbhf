@@ -36,7 +36,7 @@ const Dashboard = () => {
             <div className="dashboard-links">
             <Link to={`/dashboard/create-article`} className="dashboard-link"><img src="/icons/create.svg" alt="Create Document" className="dashboard-icon"/>Create Article</Link>
             <Link to={`/dashboard/create-article`} className="dashboard-link"><img src="/icons/update.svg" alt="Update Document" className="dashboard-icon"/>Update Article</Link>
-            <Link to={`/dashboard/create-article`} className="dashboard-link"><img src="/icons/delete.svg" alt="Delete Document" className="dashboard-icon"/>Delete Article</Link>
+            <Link to={`/dashboard/delete-article`} className="dashboard-link"><img src="/icons/delete.svg" alt="Delete Document" className="dashboard-icon"/>Delete Article</Link>
             </div>
           </div>
           <div className="right-column">
