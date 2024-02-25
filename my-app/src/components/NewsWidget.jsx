@@ -6,13 +6,25 @@ import { config } from "../constants";
 
 const NewsWidget = () => {
   const [posts, setPosts] = useState();
-  const url = config.url.API_URL_POSTS;
+  const url = config.url.API_URL;
 
   useEffect(() => {
-    axios.get(url).then((response) => {
+    axios.get(url + '/api/posts').then((response) => {
       setPosts(response.data);
     });
   }, [url]);
+
+  function removeTags(str) {
+    if ((str === null) || (str === ''))
+        return false;
+    else
+        str = str.toString();
+ 
+    // Regular expression to identify HTML tags in
+    // the input string. Replacing the identified
+    // HTML tag with a null string.
+    return str.replace(/(<([^>]+)>)/ig, '');
+}
 
   return (
     <div className="news-block-widget">
@@ -26,7 +38,7 @@ const NewsWidget = () => {
                   <div className="article-body">
                   <p className="location-box">{post.location}</p>
                   <h2>{post.title}</h2>
-                  <p>{post.body}</p>
+                  <p dangerouslySetInnerHTML={{__html: removeTags(post.body)}} />
                   <p style={{color: '#6b6b6b'}}>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
                   </div>
                 </article>

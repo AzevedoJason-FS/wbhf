@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import { ToastContainer, toast } from "react-toastify";
+import Editor from "react-simple-wysiwyg";
 const _ = require("lodash");
 
 const DashboardCreate = () => {
@@ -40,7 +41,7 @@ const DashboardCreate = () => {
       },
       function (error, result) {
         if (result.event === "success") {
-          setImg(result.info.secure_url)
+          setImg(result.info.secure_url);
         }
       }
     );
@@ -72,9 +73,9 @@ const DashboardCreate = () => {
               draggable: true,
               progress: undefined,
               theme: "colored",
-              });
+            });
           } else Promise.reject();
-      })
+        });
     } catch (err) {
       console.log(err);
     }
@@ -85,7 +86,6 @@ const DashboardCreate = () => {
       body: "",
     });
     setImg("");
-
   };
 
   const handleOnChange = (e) => {
@@ -99,19 +99,21 @@ const DashboardCreate = () => {
   return (
     <div className="container">
       <Header />
-      
+
       <div className="form-container">
-      <Link to={`/dashboard`} style={{color: '#0083bf', marginBottom: '2rem'}}>Return to dashboard</Link>
+        <Link to={`/dashboard`} style={{ color: "#0083bf", marginBottom: "2rem" }}>
+          Return to dashboard
+        </Link>
         <h2 className="title">Create Article</h2>
         <div className="input-box">
-            <label htmlFor="img" className="label-title">
-              Image
-            </label>
-            <button onClick={() => widgetRef.current.open()} className="img-upload-btn">{img ? "Change Article Image" : "Upload Article Image"}</button>
-          </div>
-          <div className="input-box">
-          {img ? <img src={img} style={{width: '200px'}} alt="Article Show"/> : <></>}
-          </div>
+          <label htmlFor="img" className="label-title">
+            Image
+          </label>
+          <button onClick={() => widgetRef.current.open()} className="img-upload-btn">
+            {img ? "Change Article Image" : "Upload Article Image"}
+          </button>
+        </div>
+        <div className="input-box">{img ? <img src={img} style={{ width: "200px" }} alt="Article Show" /> : <></>}</div>
         <form onSubmit={handleSubmit}>
           <div className="input-box">
             <label htmlFor="name" className="label-title">
@@ -136,22 +138,23 @@ const DashboardCreate = () => {
             <label htmlFor="body" className="label-title">
               Body
             </label>
-            <textarea type="body" name="body" value={body} placeholder="article body" onChange={handleOnChange} required rows="8" />
+            {/* <textarea type="body" name="body" value={body} placeholder="article body" onChange={handleOnChange} required rows="8" /> */}
+            <Editor name="body" value={body} onChange={handleOnChange} />
           </div>
           <button type="submit">Create Article</button>
         </form>
         <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="colored"
-/>
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
       </div>
     </div>
   );
