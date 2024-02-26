@@ -11,7 +11,7 @@ const DashboardDelete = () => {
   const [posts, setPosts] = useState();
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies([]);
-  const url = config.url.API_URL_POSTS;
+  const url = config.url.API_URL;
 
   useEffect(() => {
     const verifyCookie = async () => {
@@ -24,28 +24,41 @@ const DashboardDelete = () => {
     };
     verifyCookie();
 
-    axios.get(url).then((response) => {
+    axios.get(url + "/api/posts").then((response) => {
       setPosts(response.data);
     });
-  }, [cookies, navigate, removeCookie, url]);
+  }, [cookies, navigate, removeCookie, url, posts]);
+
+  function removeTags(str) {
+    if ((str === null) || (str === ''))
+        return false;
+    else
+        str = str.toString();
+ 
+    // Regular expression to identify HTML tags in
+    // the input string. Replacing the identified
+    // HTML tag with a null string.
+    return str.replace(/(<([^>]+)>)/ig, '');
+}
 
   const deleteArticle = (id) => {
     try {
       const shouldRemove = window.confirm("are you sure you want to delete this article?");
       if (shouldRemove) {
-        axios.delete("/api/delete-article/" + id).then((res) => {
-            if (res.status === 200) {
-                toast.success("Article Successfuly Deleted", {
-                  position: "top-right",
-                  autoClose: 5000,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                  progress: undefined,
-                  theme: "colored",
-                  });
-              } else Promise.reject();
+        axios.delete(url + "/api/delete-article/" + id).then((res) => {
+          if (res.status === 200) {
+            toast.success("Article Successfuly Deleted", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+            });
+            console.log(res)
+          } else Promise.reject();
         });
       }
     } catch (err) {
@@ -73,8 +86,8 @@ const DashboardDelete = () => {
                       <img src={post.img} alt="tennis" className="article-img" />
                       <div className="article-body">
                         <p className="location-box">{post.location}</p>
-                        <h2>{post.title}</h2>
-                        <p>{post.body}</p>
+                        <h2 style={{textTransform: 'uppercase'}}>{post.title}</h2>
+                        <p dangerouslySetInnerHTML={{__html: removeTags(post.body)}} />
                         <p>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
                       </div>
                       <button onClick={() => deleteArticle(post._id)}>
@@ -89,17 +102,17 @@ const DashboardDelete = () => {
           )}
         </div>
         <ToastContainer
-position="top-right"
-autoClose={5000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="colored"
-/>
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+        />
       </div>
     </>
   );

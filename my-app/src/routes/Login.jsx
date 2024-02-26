@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import { config } from "../constants";
 
 const Login = () => {
   const navigate = useNavigate();
+  const url = config.url.API_URL;
   const [inputValue, setInputValue] = useState({
     name: "",
     password: "",
@@ -21,8 +23,8 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post(
-        "/api/login",
+      await axios.post(
+        url + "/api/login",
         {
           ...inputValue,
         },
@@ -32,7 +34,7 @@ const Login = () => {
 
       })
     } catch (err) {
-      console.log('error');
+      console.log(err);
     }
     setInputValue({
       ...inputValue,

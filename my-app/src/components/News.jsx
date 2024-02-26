@@ -39,7 +39,7 @@ const News = () => {
                   <img src={post.img} alt="tennis" className="article-img"/>
                   <div className="article-body">
                   <p className="location-box">{post.location}</p>
-                  <h2>{post.title}</h2>
+                  <h2 style={{textTransform: 'uppercase'}}>{post.title}</h2>
                   <p dangerouslySetInnerHTML={{__html: removeTags(post.body)}} />
                   <p>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
                   </div>
