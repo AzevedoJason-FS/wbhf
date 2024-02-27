@@ -29,7 +29,7 @@ const Weather = () => {
 
               {weather.condition ? (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  <img src={weather.condition.icon} alt={weather.condition.text} style={{ width: "50px" }} />
+                  <img src={`https:`+ weather.condition.icon} alt={weather.condition.text} style={{ width: "64px" }} />
                   <p style={{ margin: "0" }}>{weather.condition.text}</p>
                 </div>
               ) : (
@@ -41,7 +41,7 @@ const Weather = () => {
                 return (
                   <div className="forecast-day" key={day.date}>
                     <p style={{opacity: '.6', margin: '0'}}>{new Date(day.date).toLocaleDateString("en-us", { weekday: 'long' }).substring(0, 3)}</p>
-                    <img src={day.day.condition.icon} alt={day.day.condition.text} style={{ width: "32px" }}/>
+                    <img src={`https:`+ day.day.condition.icon} alt={day.day.condition.text} style={{ width: "32px" }}/>
                     <p style={{margin: '0'}}>{day.day.maxtemp_f.toFixed(0)} F</p>
                   </div>
                 );

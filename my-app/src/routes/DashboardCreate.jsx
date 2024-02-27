@@ -36,11 +36,14 @@ const DashboardCreate = () => {
     cloudinaryRef.current = window.cloudinary;
     widgetRef.current = cloudinaryRef.current.createUploadWidget(
       {
+        multiple: false,
+        maxImageFileSize: 5000000,
         cloudName: "dbqqobh8l",
         uploadPreset: "ml_default",
       },
       function (error, result) {
         if (result.event === "success") {
+          console.log(result.info)
           setImg(result.info.secure_url);
         }
       }

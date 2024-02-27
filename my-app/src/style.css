@@ -390,3 +390,7 @@ button{
 button:hover{
   background-color: white;
 }
+
+.rsw-editor{
+  background-color: white;
+}
