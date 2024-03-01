@@ -12,6 +12,7 @@ const Weather = () => {
       setWeather(response.data.current);
       setLocation(response.data.location);
       setForecast(response.data.forecast.forecastday);
+      console.log(response.data)
     });
   }, [url]);
 
@@ -37,10 +38,10 @@ const Weather = () => {
               )}
             </div>
             <div className="section-2">
-              {forecast.slice(1, 6).map((day) => {
+              {forecast.map((day) => {
                 return (
                   <div className="forecast-day" key={day.date}>
-                    <p style={{opacity: '.6', margin: '0'}}>{new Date(day.date).toLocaleDateString("en-us", { weekday: 'long' }).substring(0, 3)}</p>
+                    <p style={{opacity: '.6', margin: '0'}}>{new Date(day.date).toLocaleDateString("en-us",{ weekday: "long", timeZone: "UTC" }).substring(0, 3)}</p>
                     <img src={`https:`+ day.day.condition.icon} alt={day.day.condition.text} style={{ width: "32px" }}/>
                     <p style={{margin: '0'}}>{day.day.maxtemp_f.toFixed(0)} F</p>
                   </div>

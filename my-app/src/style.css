@@ -90,8 +90,7 @@ nav {
 }
 
 .title {
-  text-transform: uppercase;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 800;
   letter-spacing: -0.96px;
   margin: 0 0 1rem 0;
@@ -123,6 +122,7 @@ article {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: rgba(0, 0, 0, 0.604);
 }
 
 article .article-img {
@@ -264,6 +264,11 @@ article:hover {
 .news-block-widget {
   display: flex;
   flex-direction: column;
+}
+
+.news-block{
+  background-color: white;
+  padding: 20px;
 }
 
 .article-widget {
