@@ -116,7 +116,7 @@ const DashboardCreate = () => {
             {img ? "Change Article Image" : "Upload Article Image"}
           </button>
         </div>
-        <div className="input-box">{img ? <img src={img} style={{ width: "200px" }} alt="Article Show" /> : <></>}</div>
+        <div className="input-box" style={{marginTop: '1rem'}}>{img ? <img src={img} style={{ width: "200px" }} alt="Article Show" /> : <></>}</div>
         <form onSubmit={handleSubmit}>
           <div className="input-box">
             <label htmlFor="name" className="label-title">

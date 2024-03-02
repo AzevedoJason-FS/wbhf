@@ -53,7 +53,7 @@ const Article = () => {
           </div>
           <div className="right-column">
             <Weather />
-            <h2 className="title" style={{ marginTop: "1rem" }}>
+            <h2 className="title" style={{ margin: "2rem 0" }}>
               Other Articles
             </h2>
             <NewsWidget />

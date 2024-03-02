@@ -18,7 +18,7 @@ const Home = () => {
           </div>
           <div className="right-column">
             <Weather />
-            <h2 className="title" style={{marginTop:'1rem'}}>Programming</h2>
+            <h2 className="title" style={{margin: '2rem 0'}}>Programming</h2>
             <Programming />
           </div>
         </div>
