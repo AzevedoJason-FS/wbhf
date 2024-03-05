@@ -36,7 +36,7 @@ const Article = () => {
             </div>
             <div className="news-article">
             <Link to={`/`} style={{color: '#0083bf', marginBottom: '10px'}}>Return Home</Link>
-              <h2 className="title" style={{ margin: "1rem 0 1rem 0" }}>
+              <h2 className="title" style={{ margin: "1rem 0 1rem 0", fontWeight: '800' }}>
                 {article.title}
               </h2>
               <img src={article.img} />

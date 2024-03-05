@@ -24,8 +24,8 @@ const Weather = () => {
             <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" style={{zIndex: '0', opacity: '.1', position: 'absolute', top: '0', right: '-40px', width: '-webkit-fill-available'}}/>
             <div className="section-1">
               <div>
-                <p style={{marginTop: '0'}}>{location.name}</p>
-                <h2 style={{ fontSize: "40px", margin: "0", fontWeight: "bold" }}>{weather.temp_f} F</h2>
+                <p style={{marginTop: '0'}}>{location.name}, GA</p>
+                <h2 style={{ fontSize: "40px", margin: "0", fontWeight: "bold" }}>{weather.temp_f}°F</h2>
               </div>
 
               {weather.condition ? (

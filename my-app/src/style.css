@@ -20,8 +20,6 @@ textarea::placeholder{
   color: #0000003e;
 }
 
-
-
 .container {
   max-width: 1400px;
   margin: auto;
@@ -93,7 +91,6 @@ nav {
 
 .title {
   font-size: 28px;
-  font-weight: 800;
   letter-spacing: -0.96px;
   margin: 0 0 1rem 0;
 }
