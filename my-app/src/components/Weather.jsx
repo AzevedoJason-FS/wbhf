@@ -5,13 +5,12 @@ const Weather = () => {
   const [weather, setWeather] = useState({});
   const [location, setLocation] = useState({});
   const [forecast, setForecast] = useState([]);
-  const url = "https://api.weatherapi.com/v1/forecast.json?key=e5eb030fbe61458397065456241302&q=cartersville, GA&days=6&aqi=no&alerts=no";
+  const url = "https://api.weatherapi.com/v1/current.json?key=e5eb030fbe61458397065456241302&q=30121&aqi=no";
 
   useEffect(() => {
     axios.get(url).then((response) => {
       setWeather(response.data.current);
       setLocation(response.data.location);
-      setForecast(response.data.forecast.forecastday);
       console.log(response.data)
     });
   }, [url]);
@@ -21,7 +20,7 @@ const Weather = () => {
       {weather && location && forecast ? (
         <>
           <div className="weather-widget" data-time={weather.is_day}>
-            <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" style={{zIndex: '0', opacity: '.1', position: 'absolute', top: '0', right: '-40px', width: '-webkit-fill-available'}}/>
+            <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" style={{zIndex: '0', opacity: '.1', position: 'absolute', top: '-40px', right: '-100px', width: '-webkit-fill-available'}}/>
             <div className="section-1">
               <div>
                 <p style={{marginTop: '0'}}>{location.name}, GA</p>
@@ -36,17 +35,6 @@ const Weather = () => {
               ) : (
                 <></>
               )}
-            </div>
-            <div className="section-2">
-              {forecast.map((day) => {
-                return (
-                  <div className="forecast-day" key={day.date}>
-                    <p style={{opacity: '.6', margin: '0'}}>{new Date(day.date).toLocaleDateString("en-us",{ weekday: "long", timeZone: "UTC" }).substring(0, 3)}</p>
-                    <img src={`https:`+ day.day.condition.icon} alt={day.day.condition.text} style={{ width: "32px" }}/>
-                    <p style={{margin: '0'}}>{day.day.maxtemp_f.toFixed(0)} F</p>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </>

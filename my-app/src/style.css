@@ -86,7 +86,7 @@ nav {
 }
 
 .right-column {
-  width: 32%;
+  width: 30%;
 }
 
 .title {
@@ -254,6 +254,8 @@ article:hover {
   display: flex;
   flex-direction: row;
   gap: 10px;
+  border-top: 1px solid #E4E4E4;
+  padding-top: 20px;
   margin-top: 2rem;
 }
 
