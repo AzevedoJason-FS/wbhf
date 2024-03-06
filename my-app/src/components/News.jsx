@@ -52,8 +52,8 @@ const News = () => {
 
   return (
     <div>
-      <div style={{padding: '10px 20px', background: "#0083bf"}}>
-      <h2 className="title" style={{ color: "white", margin: '0'}}>
+      <div>
+      <h2 className="title" style={{ margin: '0 0 1rem 0'}}>
         Latest Local News
       </h2>
       </div>
