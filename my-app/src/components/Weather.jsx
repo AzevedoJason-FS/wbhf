@@ -4,20 +4,18 @@ import axios from "axios";
 const Weather = () => {
   const [weather, setWeather] = useState({});
   const [location, setLocation] = useState({});
-  const [forecast, setForecast] = useState([]);
   const url = "https://api.weatherapi.com/v1/current.json?key=e5eb030fbe61458397065456241302&q=30121&aqi=no";
 
   useEffect(() => {
     axios.get(url).then((response) => {
       setWeather(response.data.current);
-      setLocation(response.data.location);
-      console.log(response.data)
+      setLocation(response.data.location); 
     });
   }, [url]);
 
   return (
     <>
-      {weather && location && forecast ? (
+      {weather && location ? (
         <>
           <div className="weather-widget" data-time={weather.is_day}>
             <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" style={{zIndex: '0', opacity: '.1', position: 'absolute', top: '-40px', right: '-100px', width: '-webkit-fill-available'}}/>
