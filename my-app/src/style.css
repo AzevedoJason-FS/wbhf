@@ -56,7 +56,7 @@ nav {
 .nav-link-container {
   display: flex;
   flex-direction: row;
-  gap: 32px;
+  gap: 30px;
 }
 
 .nav-link {
