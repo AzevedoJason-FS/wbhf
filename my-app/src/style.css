@@ -22,26 +22,30 @@ textarea::placeholder {
 
 .container {
   margin: auto;
-  padding: 20px;
 }
 
 header {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
 }
 
 .header_1 {
   display: flex;
-  margin-bottom: 10px;
   flex-direction: row;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto 2px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #303030;
 }
 
 .header_1 p {
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 nav {
@@ -50,7 +54,7 @@ nav {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 5px 10px;
+  padding: 20px 10px;
 }
 
 .nav-link-container {
@@ -64,15 +68,25 @@ nav {
   color: white;
   font-weight: 500;
   font-size: 18px;
+  padding: 10px;
   text-transform: capitalize;
+  transition: all 0.2s linear;
+}
+
+.nav-link:hover{
+  background-color: white;
+  color: #303030;
 }
 
 .main {
   display: flex;
   flex-direction: row;
   max-width: 1400px;
-  margin: 2rem auto;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  margin: auto;
   gap: 30px;
+  border-top: 1px solid;
 }
 
 .sponsor-block {
