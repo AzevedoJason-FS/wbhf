@@ -69,6 +69,7 @@ nav {
 .main {
   display: flex;
   flex-direction: row;
+  max-width: 1400px;
   margin: 2rem auto;
   gap: 30px;
 }
