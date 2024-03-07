@@ -26,7 +26,8 @@ const connectMongo = async () => {
 }
 
 const corsOptions ={
-    origin:'http://localhost:3000', 
+    // origin:'http://localhost:3000', 
+    origin: 'https://rose-strange-lobster.cyclic.app',
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }

@@ -1,6 +1,6 @@
 const prod = {
     url: {
-     API_URL: 'https://shy-gray-spider-sock.cyclic.app',
+     API_URL: 'https://rose-strange-lobster.cyclic.app',
     }
     }
 
