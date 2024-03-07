@@ -78,7 +78,7 @@ const News = () => {
               })}
           </>
         ) : (
-          <p>nothing</p>
+          <p>Loading</p>
         )}
         {/* Pagination controls */}
         <div className="page-btns-container">
