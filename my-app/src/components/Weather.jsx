@@ -18,7 +18,7 @@ const Weather = () => {
       {weather && location ? (
         <>
           <div className="weather-widget" data-time={weather.is_day}>
-            <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" style={{zIndex: '0', opacity: '.1', position: 'absolute', top: '-40px', right: '-100px', width: '-webkit-fill-available'}}/>
+            <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" className="weather-background"/>
             <div className="section-1">
               <div>
                 <p style={{marginTop: '0'}}>{location.name}, GA</p>

@@ -8,7 +8,7 @@ body {
   color: #303030;
 }
 
-textarea{
+textarea {
   font-family: "Karla", sans-serif;
   background-color: #ffffff;
   border: 1px solid #c9cacc;
@@ -16,7 +16,7 @@ textarea{
   font-size: 18px;
 }
 
-textarea::placeholder{
+textarea::placeholder {
   color: #0000003e;
 }
 
@@ -166,6 +166,17 @@ article:hover {
   overflow: hidden;
 }
 
+.weather-background {
+  z-index: 0;
+  opacity: 0.1;
+  position: absolute;
+  top: -40px;
+  right: -100px;
+  width: -moz-available; /* WebKit-based browsers will ignore this. */
+  width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+  width: stretch;
+}
+
 .weather-widget .section-1,
 .section-2 {
   display: flex;
@@ -201,7 +212,7 @@ article:hover {
   background-color: white;
   padding: 20px;
   display: flex;
-  border: 1px solid #E4E4E4;
+  border: 1px solid #e4e4e4;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -239,7 +250,7 @@ article:hover {
   padding: 40px 20px;
   white-space: pre-line;
   font-size: 18px;
-  border: 1px solid #E4E4E4;
+  border: 1px solid #e4e4e4;
   line-height: 1.54;
 }
 
@@ -253,7 +264,7 @@ article:hover {
   display: flex;
   flex-direction: row;
   gap: 10px;
-  border-top: 1px solid #E4E4E4;
+  border-top: 1px solid #e4e4e4;
   padding-top: 20px;
   margin-top: 2rem;
 }
@@ -268,10 +279,10 @@ article:hover {
   flex-direction: column;
 }
 
-.news-block{
+.news-block {
   background-color: white;
   padding: 20px;
-  border: 1px solid #E4E4E4;
+  border: 1px solid #e4e4e4;
 }
 
 .article-widget {
@@ -332,27 +343,27 @@ article:hover {
   margin-bottom: 6rem;
 }
 
-.input-box{
+.input-box {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-form{
+form {
   width: 80%;
 }
 
-input{
+input {
   padding: 10px;
   font-size: 18px;
   border: 1px solid #c9cacc;
 }
 
-input::placeholder{
+input::placeholder {
   color: #0000003e;
 }
 
-.label-title{
+.label-title {
   font-size: 26px;
   font-weight: 700;
   color: #0083bf;
@@ -360,7 +371,7 @@ input::placeholder{
   margin: 1rem 0 4px 0;
 }
 
- form button{
+form button {
   background: white;
   border: none;
   border: 1px solid #0083bf;
@@ -372,7 +383,7 @@ input::placeholder{
   cursor: pointer;
 }
 
-.img-upload-btn{
+.img-upload-btn {
   background: #0083bf;
   border: none;
   border: 1px solid white;
@@ -383,27 +394,27 @@ input::placeholder{
   cursor: pointer;
 }
 
-button{
+button {
   background: none;
-	color: inherit;
-	border: none;
+  color: inherit;
+  border: none;
   border: 1px solid #c9cacc;
-	padding: 0 40px;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+  padding: 0 40px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
   transition: all 0.2s linear;
 }
 
-button:hover{
+button:hover {
   background-color: white;
 }
 
-.rsw-editor{
+.rsw-editor {
   background-color: white;
 }
 
-.page-btns-container{
+.page-btns-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -411,13 +422,13 @@ button:hover{
   gap: 20px;
 }
 
-.page-btn{
+.page-btn {
   border-radius: 100px;
   padding: 0px 20px;
-  border: 1px solid #E4E4E4;
+  border: 1px solid #e4e4e4;
 }
 
-.page-btn:hover{
+.page-btn:hover {
   background-color: #0083bf;
   color: white;
 }
