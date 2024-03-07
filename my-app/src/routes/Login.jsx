@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import { config } from "../constants";
@@ -12,7 +12,7 @@ const Login = () => {
     password: "",
   });
   const { name, password } = inputValue;
-  const { error, setError } = useState('')
+  // const { error, setError } = useState('')
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;

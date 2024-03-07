@@ -40,7 +40,7 @@ const Article = () => {
                 {article.title}
               </h2>
               <p style={{color: "#a7a7a7"}}>Published {new Date(article.created_at).toLocaleDateString("en-us", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}</p>
-              <img src={article.img} />
+              <img src={article.img} alt={article.title}/>
               <p dangerouslySetInnerHTML={{__html: article.body}} />
               <div className="social-share-container">
               <SocialShare url={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}`} img="/icons/facebook.svg" />

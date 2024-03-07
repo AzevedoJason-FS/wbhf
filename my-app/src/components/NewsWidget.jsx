@@ -6,23 +6,20 @@ import { config } from "../constants";
 
 const NewsWidget = () => {
   const [posts, setPosts] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   const url = config.url.API_URL;
 
-  const fetchPosts = async (page) => {
-    try {
-      const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=4`);
-      const { posts } = response.data;
-      setPosts(posts);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchPosts(currentPage);
-  }, [currentPage]);
+    const fetchPosts = async (page) => {
+      try {
+        const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=4`);
+        const { posts } = response.data;
+        setPosts(posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchPosts(1)
+  }, [url]);
 
   function removeTags(str) {
     if ((str === null) || (str === ''))

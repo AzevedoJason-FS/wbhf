@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { config } from "../constants";
@@ -10,19 +10,17 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const url = config.url.API_URL;
   const [cookies, removeCookie] = useCookies([]);
-  const [name, setName] = useState("");
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
         navigate("/login");
       }
       const { data } = await axios.post(url + "/api", {}, { withCredentials: true });
-      const { status, user } = data;
-      setName(user);
+      const { status } = data;
       return !status ? (removeCookie("token"), navigate("/login")) : <></>;
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+  }, [cookies, navigate, removeCookie, url]);
   const Logout = () => {
     removeCookie("token");
     navigate("/");
