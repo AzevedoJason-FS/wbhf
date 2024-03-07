@@ -17,12 +17,12 @@ const Home = () => {
          <News />
           </div>
           <div className="right-column">
-            <div style={{margin: '0 0 20px 0'}}>
-            <iframe src="https://tunein.com/embed/player/s27449/" style={{width:'100%', height:'100px'}} scrolling="no" frameborder="no"></iframe>
-            </div>
+            <div style={{position: 'sticky', top: '1rem'}}>
             <Weather />
             <h2 className="title" style={{margin: '20px 0'}}>Programming</h2>
             <Programming />
+            </div>
+
           </div>
         </div>
       </div>

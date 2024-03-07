@@ -12,12 +12,12 @@ const News = () => {
 
   const fetchPosts = async (page) => {
     try {
-      const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=5`);
+      const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=8`);
       const { posts, totalPages } = response.data;
       setPosts(posts);
       setTotalPages(totalPages);
-      console.log(response.data)
-      console.log(posts)
+      console.log(response.data);
+      console.log(posts);
     } catch (error) {
       console.log(error);
     }
@@ -35,11 +35,11 @@ const News = () => {
     // the input string. Replacing the identified
     // HTML tag with a null string.
     return str.replace(/(<([^>]+)>)/gi, "");
-  }
+  };
 
   const handlePrevPage = () => {
     if (currentPage > 1) {
-      setCurrentPage(currentPage- 1);
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -49,13 +49,12 @@ const News = () => {
     }
   };
 
-
   return (
     <div>
       <div>
-      <h2 className="title" style={{ margin: '0 0 1rem 0'}}>
-        Latest Local News
-      </h2>
+        <h2 className="title" style={{ margin: "0 0 1rem 0" }}>
+          Latest Local News
+        </h2>
       </div>
       <div className="news-block">
         {posts && posts.length > 0 ? (
@@ -80,13 +79,16 @@ const News = () => {
         ) : (
           <p>nothing</p>
         )}
-         {/* Pagination controls */}
-      <button onClick={handlePrevPage} disabled={currentPage === 1}>
-        Previous Page
-      </button>
-      <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-        Next Page
-      </button>
+        {/* Pagination controls */}
+        <div className="page-btns-container">
+          <button onClick={handlePrevPage} disabled={currentPage === 1} className="page-btn">
+          <p>Prev Page</p>
+          </button>
+          <p>{currentPage}</p>
+          <button onClick={handleNextPage} disabled={currentPage === totalPages} className="page-btn">
+            <p>Next Page</p>
+          </button>
+        </div>
       </div>
     </div>
   );

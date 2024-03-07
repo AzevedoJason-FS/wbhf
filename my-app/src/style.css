@@ -50,8 +50,8 @@ nav {
   flex-direction: row;
   margin-top: 4px;
   align-items: center;
-  justify-content: space-between;
-  padding: 0px 10px;
+  justify-content: center;
+  padding: 20px 10px;
 }
 
 .nav-link-container {
@@ -402,4 +402,23 @@ button:hover{
 
 .rsw-editor{
   background-color: white;
+}
+
+.page-btns-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 4rem 0 0 0;
+  gap: 20px;
+}
+
+.page-btn{
+  border-radius: 100px;
+  padding: 0px 20px;
+  border: 1px solid #E4E4E4;
+}
+
+.page-btn:hover{
+  background-color: #0083bf;
+  color: white;
 }

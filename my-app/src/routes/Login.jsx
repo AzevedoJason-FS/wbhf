@@ -12,6 +12,8 @@ const Login = () => {
     password: "",
   });
   const { name, password } = inputValue;
+  const { error, setError } = useState('')
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -23,6 +25,25 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      axios.interceptors.response.use(
+        response => response,
+        error => {
+          const status = error.response ? error.response.status : null;
+          
+          if (status === 401) {
+            // Handle unauthorized access
+            console.log("Unauthorized access");
+          } else if (status === 404) {
+            // Handle not found errors
+            console.log("Post not found");
+          } else {
+            // Handle other errors
+            console.error("An error occurred:", error.response.data);
+          }
+          return Promise.reject(error);
+        }
+      );
+
       await axios.post(
         url + "/api/login",
         {
@@ -31,10 +52,30 @@ const Login = () => {
         { withCredentials: true }
       ).then((res) => {
         if(res.data === true) navigate('/dashboard')
-
       })
+    .catch((err) => {
+      toast.error(err.response.data, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    })
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
     setInputValue({
       ...inputValue,
@@ -57,7 +98,18 @@ const Login = () => {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <ToastContainer />
+      <ToastContainer
+position="top-right"
+autoClose={5000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="colored"
+/>
     </div>
   );
 };
