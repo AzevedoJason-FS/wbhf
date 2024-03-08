@@ -40,15 +40,14 @@ const NewsWidget = () => {
           {posts &&
             posts.slice(0, 6).map((post) => {
               return (
-                <Link to={`/article/${post.slug}`} className="article-link" key={post.slug}>
-                <article className="article-widget">
+                <Link to={`/article/${post.slug}`} className="article-link" key={post._id}>
+                <div className="article-widget">
                   <div className="article-body">
                   <p className="location-box">{post.location}</p>
                   <h2 style={{textTransform: 'uppercase'}}>{post.title}</h2>
-                  <p dangerouslySetInnerHTML={{__html: removeTags(post.body)}} />
                   <p style={{color: '#6b6b6b'}}>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
                   </div>
-                </article>
+                </div>
                 </Link>
               );
             })}

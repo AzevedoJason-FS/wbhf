@@ -9,7 +9,7 @@ const Weather = () => {
   useEffect(() => {
     axios.get(url).then((response) => {
       setWeather(response.data.current);
-      setLocation(response.data.location); 
+      setLocation(response.data.location);
     });
   }, [url]);
 
@@ -17,22 +17,18 @@ const Weather = () => {
     <>
       {weather && location ? (
         <>
-          <div className="weather-widget" data-time={weather.is_day}>
-            <img src="/global-images/bartow-courthouse.webp" alt="Bartow Courthouse" className="weather-background"/>
+          <div className="weather-widget">
             <div className="section-1">
-              <div>
-                <p style={{marginTop: '0'}}>{location.name}, GA</p>
-                <h2 style={{ fontSize: "40px", margin: "0", fontWeight: "bold" }}>{weather.temp_f}°F</h2>
-              </div>
-
               {weather.condition ? (
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  <img src={`https:`+ weather.condition.icon} alt={weather.condition.text} style={{ width: "64px" }} />
-                  <p style={{ margin: "0" }}>{weather.condition.text}</p>
+                  <img src={`https:` + weather.condition.icon} alt={weather.condition.text} style={{ width: "48px" }} />
                 </div>
               ) : (
                 <></>
               )}
+              <div>
+                <p style={{ fontSize: "16px", margin: "0", color: 'white' }}>{weather.temp_f} °F</p>
+              </div>
             </div>
           </div>
         </>

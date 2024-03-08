@@ -4,7 +4,6 @@ body {
   font-family: "Karla", sans-serif !important;
   padding: 0;
   margin: 0;
-  background-color: rgba(245, 245, 245);
   color: #303030;
 }
 
@@ -32,29 +31,28 @@ header {
 .header_1 {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   max-width: 1400px;
   width: 100%;
   margin: 0 auto 2px auto;
-  padding: 20px;
+  padding: 0px 10px;
   box-sizing: border-box;
-  border-bottom: 2px solid #303030;
 }
 
 .header_1 p {
   text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 nav {
-  background-color: #0083bf;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 20px 10px;
+  padding: 5px 10px;
+  background-color: #0083bf;
 }
 
 .nav-link-container {
@@ -67,7 +65,7 @@ nav {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   padding: 10px;
   text-transform: capitalize;
   transition: all 0.2s linear;
@@ -75,7 +73,7 @@ nav {
 
 .nav-link:hover{
   background-color: white;
-  color: #303030;
+  color: #0083bf;
 }
 
 .main {
@@ -86,7 +84,6 @@ nav {
   padding: 10px 20px;
   margin: auto;
   gap: 30px;
-  border-top: 1px solid;
 }
 
 .sponsor-block {
@@ -101,12 +98,23 @@ nav {
 
 .right-column {
   width: 30%;
+  margin-top: 4rem;
+  border-left: 1px solid #e4e4e4;
 }
 
 .title {
-  font-size: 28px;
+  font-size: 38px;
   letter-spacing: -0.96px;
   margin: 0 0 1rem 0;
+}
+
+.dot {
+  height: 30px;
+  width: 30px;
+  margin-top: -14px;
+  background-color: #0083bf;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .sub-title {
@@ -119,29 +127,47 @@ nav {
 
 article {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 20px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #EEEEEE;
+  padding: 10px;
+}
+
+.single-article{
+  display: flex;
+  flex-direction: column;
+}
+
+.single-article-img{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.grid-article{
+  padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
 .article-body {
   flex: 1;
   min-width: 0; /* or some value */
   transition: all 0.2s linear;
-  padding: 10px 20px;
 }
 
 .article-body p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgba(0, 0, 0, 0.604);
 }
 
 article .article-img {
-  width: 360px;
-  height: 200px;
+  width: 100%;
+  height: 260px;
   object-fit: cover;
 }
 
@@ -151,7 +177,7 @@ article h2 {
   letter-spacing: -0.96px;
 }
 
-article .location-box {
+.location-box {
   background-color: #0083bf;
   padding: 4px 10px;
   width: fit-content;
@@ -169,15 +195,9 @@ article .date {
   color: #303030;
 }
 
-.article-body:hover {
-  background-color: #EEEEEE;
-  cursor: pointer;
-}
-
 .weather-widget {
   display: flex;
   flex-direction: column;
-  padding: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -200,35 +220,13 @@ article .date {
   align-items: center;
   justify-content: space-between;
   z-index: 1;
-}
-
-.section-2 {
-  margin-top: 1rem;
-  justify-content: flex-start;
-  gap: 30px;
-}
-
-[data-time="0"] {
-  background: linear-gradient(#0a142c, #070910);
-  color: white;
-}
-
-[data-time="1"] {
-  background: linear-gradient(#1f8bba, #6eb8dc);
-  color: white;
-}
-
-.forecast-day {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 20px;
 }
 
 .programming-widget {
   background-color: white;
   padding: 20px;
   display: flex;
-  border: 1px solid #e4e4e4;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -262,11 +260,9 @@ article .date {
 }
 
 .news-article {
-  background-color: #ffffff;
   padding: 40px 20px;
   white-space: pre-line;
   font-size: 18px;
-  border: 1px solid #e4e4e4;
   line-height: 1.54;
 }
 
@@ -292,21 +288,21 @@ article .date {
 
 .news-block-widget {
   display: flex;
+  margin-top: 20px;
   flex-direction: column;
 }
 
 .news-block {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid #e4e4e4;
+  /* padding: 20px; */
 }
 
 .article-widget {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 10px;
+  padding: 20px 20px;
   transition: all 0.2s linear;
+  border-bottom: 1px solid rgb(228, 228, 228);
 }
 
 .article-widget img {

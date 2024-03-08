@@ -10,19 +10,20 @@ const Home = () => {
       <div className="container">
         <Header />
         <div className="main">
-          <div style={{width: '68%'}}>
-          <div className="sponsor-block">
-            <img src="/global-images/WBHF-banner.jpeg" alt="bank"/>
-          </div>
-         <News />
+          <div style={{ width: "68%", marginTop: "4rem" }}>
+            <div className="sponsor-block">
+              <img src="/global-images/WBHF-banner.jpeg" alt="bank" />
+            </div>
+            <News />
           </div>
           <div className="right-column">
-            <div style={{position: 'sticky', top: '1rem'}}>
-            <Weather />
-            <h2 className="title" style={{margin: '20px 0'}}>Programming</h2>
-            <Programming />
+            <div style={{ position: "sticky", top: "1rem", paddingLeft: '10px' }}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '20px', paddingBottom: '10px', borderBottom: '1px solid #e4e4e4'}}>
+                <span className="dot"></span>
+                <h2 className="title">Programming</h2>
+              </div>
+              <Programming />
             </div>
-
           </div>
         </div>
       </div>

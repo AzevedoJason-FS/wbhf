@@ -30,7 +30,7 @@ const Article = () => {
       <div className="container">
         <Header />
         <div className="main">
-          <div style={{ width: "68%" }}>
+          <div style={{ width: "68%", marginTop: '4rem'}}>
             <div className="sponsor-block">
               <img src="/global-images/banner.jpeg" alt="bank" />
             </div>
@@ -50,11 +50,13 @@ const Article = () => {
             </div>
           </div>
           <div className="right-column">
-            <Weather />
-            <h2 className="title" style={{ margin: "2rem 0" }}>
-              Other Articles
-            </h2>
+          <div style={{ position: "sticky", top: "1rem", paddingLeft: '10px' }}>
+          <div style={{display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '20px', paddingBottom: '10px', borderBottom: '1px solid #e4e4e4'}}>
+                <span className="dot"></span>
+                <h2 className="title">Other Articles</h2>
+              </div>
             <NewsWidget />
+          </div>
           </div>
         </div>
       </div>

@@ -52,16 +52,30 @@ const News = () => {
 
   return (
     <div>
-      <div>
-        <h2 className="title" style={{ margin: "0 0 1rem 0" }}>
-          Latest Local News
-        </h2>
-      </div>
       <div className="news-block">
         {posts && posts.length > 0 ? (
           <>
-            {posts &&
-              posts.map((post) => {
+          <div style={{paddingBottom: '40px', borderBottom: '1px solid #e4e4e4'}}>
+          {posts && currentPage === 1 &&
+              posts.slice(0,1).map((post) => {
+                return (
+                  <Link to={`/article/${post.slug}`} className="article-link" key={post._id}>
+                    <div className="single-article">
+                      <div className="article-body">
+                        <p className="location-box">{post.location}</p>
+                        <h2 style={{ textTransform: 'capitalize', fontSize: '36px', margin: '0', letterSpacing: '-0.96px', fontWeight: '800' }}>{post.title}</h2>
+                        <p dangerouslySetInnerHTML={{ __html: removeTags(post.body) }} style={{color: '#838383'}}/>
+                        <p style={{color: '#c2c2c2'}}>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
+                      </div>
+                      <img src={post.img} alt="tennis" className="single-article-img" />
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
+          <div className="grid-article">
+          {posts &&
+              posts.slice(1).map((post) => {
                 return (
                   <Link to={`/article/${post.slug}`} className="article-link" key={post._id}>
                     <article>
@@ -69,13 +83,13 @@ const News = () => {
                       <div className="article-body">
                         <p className="location-box">{post.location}</p>
                         <h2 style={{ textTransform: "uppercase" }}>{post.title}</h2>
-                        <p dangerouslySetInnerHTML={{ __html: removeTags(post.body) }} />
-                        <p>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
+                        <p style={{color: '#c2c2c2'}}>{new Date(post.created_at).toLocaleDateString("en-us", { day: "numeric", month: "long", year: "numeric" })}</p>
                       </div>
                     </article>
                   </Link>
                 );
               })}
+          </div>
           </>
         ) : (
           <p>Loading</p>
