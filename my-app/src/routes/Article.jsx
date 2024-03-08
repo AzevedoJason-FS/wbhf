@@ -3,7 +3,6 @@ import { config } from "../constants";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Weather from "../components/Weather";
 import Header from "../components/Header";
 import SocialShare from "../components/SocialShare";
 import NewsWidget from "../components/NewsWidget";
