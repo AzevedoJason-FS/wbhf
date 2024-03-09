@@ -42,8 +42,10 @@ header {
 
 .header_1 p {
   text-transform: uppercase;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.96px;
+  color: #303030;
 }
 
 nav {
@@ -129,8 +131,16 @@ article {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 10px;
-  padding: 10px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.article-link:nth-child(odd) {
+  border-right: 1px solid #e4e4e4;
+  padding-right: 20px;
+}
+
+.article-link:nth-child(even) {
+  margin-left: 20px;
 }
 
 .single-article{
@@ -149,14 +159,15 @@ article {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 .article-body {
   flex: 1;
   min-width: 0; /* or some value */
   transition: all 0.2s linear;
+  padding-bottom: 20px;
 }
 
 .article-body p {
@@ -191,6 +202,12 @@ article .date {
 }
 
 .article-link {
+  text-decoration: none;
+  color: #303030;
+  margin-top: 20px;
+}
+
+.article-link-widget {
   text-decoration: none;
   color: #303030;
 }
@@ -290,10 +307,6 @@ article .date {
   display: flex;
   margin-top: 20px;
   flex-direction: column;
-}
-
-.news-block {
-  /* padding: 20px; */
 }
 
 .article-widget {

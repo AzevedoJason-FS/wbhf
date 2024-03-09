@@ -26,8 +26,7 @@ const connectMongo = async () => {
 }
 
 const corsOptions ={
-    // origin:'http://localhost:3000', 
-    origin: 'https://wbhf-my-app.netlify.app',
+    origin:['http://localhost:3000','https://wbhf-my-app.netlify.app'], 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
