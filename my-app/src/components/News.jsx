@@ -16,7 +16,7 @@ const News = () => {
     const fetchPosts = async (page) => {
       setSpinner(true);
       try {
-        const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=8`);
+        const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=7`);
         const { posts, totalPages } = response.data;
         setPosts(posts);
         setTotalPages(totalPages);

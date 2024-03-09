@@ -9,7 +9,7 @@ const Home = () => {
       <div className="container">
         <Header />
         <div className="main">
-          <div style={{ width: "68%", marginTop: "4rem" }}>
+          <div className="left-column">
             <div className="sponsor-block">
               <img src="/global-images/WBHF-banner.jpeg" alt="bank" />
             </div>
