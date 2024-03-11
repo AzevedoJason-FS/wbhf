@@ -12,37 +12,21 @@ const News = () => {
   const [totalPages, setTotalPages] = useState(0);
   const url = config.url.API_URL;
 
-  const fetchDataMemoized = useCallback(
-    async (page) => {
-      setSpinner(true);
-      await axios.get(`${url}/api/posts?page=${page}&pageSize=5`).then((result) => {
-        setPosts(result.data.posts);
-        setTotalPages(result.data.totalPages);
-        setSpinner(false);
-      });
-    },
-    [url]
-  );
-
   useEffect(() => {
-    fetchDataMemoized(currentPage);
-  }, [fetchDataMemoized, currentPage]);
-
-  // useEffect(() => {
-  //   const fetchPosts = async (page) => {
-  //     setSpinner(true);
-  //     try {
-  //       const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=7`);
-  //       const { posts, totalPages } = response.data;
-  //       setPosts(posts);
-  //       setTotalPages(totalPages);
-  //       setSpinner(false);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   fetchPosts(currentPage);
-  // }, [currentPage, url]);
+    const fetchPosts = async (page) => {
+      setSpinner(true);
+      try {
+        const response = await axios.get(`${url}/api/posts?page=${page}&pageSize=7`);
+        const { posts, totalPages } = response.data;
+        setPosts(posts);
+        setTotalPages(totalPages);
+        setSpinner(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchPosts(currentPage);
+  }, [currentPage, url]);
 
   const removeTags = (str) => {
     if (str === null || str === "") return false;
