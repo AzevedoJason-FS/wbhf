@@ -12,12 +12,7 @@ const { auth } = require('./middleware/Auth');
 // Connect to MongoDB
 const connectMongo = async () => {
     try{
-        mongoose.connect(process.env.MONGO_URL, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,    
-        })
-        .then(() => console.log(`MongoDB connected`))
-        .catch(err => console.log(err));
+        mongoose.connect(process.env.MONGO_URL)
     }
     catch (error){
         console.log(error);
@@ -52,7 +47,7 @@ const port = 8080;
 //Connect to MongoDB before listening
 connectMongo().then(() => {
     app.listen(port, () => {
-        console.log(`Ready for Requests on ${port}`)
+
     })
 })
 
