@@ -55,8 +55,8 @@ const Article = () => {
                 <p dangerouslySetInnerHTML={{ __html: article.body }} />
                 <div className="social-share-container">
                   <SocialShare url={`https://www.facebook.com/sharer/sharer.php?u=${baseURL}`} img="/icons/facebook.svg" />
-                  <SocialShare url={`https://twitter.com/intent/tweet?url=&text=&via=${baseURL}`} img="/icons/twitter.svg" />
-                  <SocialShare url={`https://www.linkedin.com/shareArticle?url=&title=${baseURL}`} img="/icons/linkedin.svg" />
+                  <SocialShare url={`https://twitter.com/intent/post?url=${baseURL}`} img="/icons/twitter.svg" />
+                  <SocialShare url={`https://www.linkedin.com/sharing/share-offsite/?url=${baseURL}`} img="/icons/linkedin.svg" />
                 </div>
               </div>
             </div>
